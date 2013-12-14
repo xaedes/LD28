@@ -2,10 +2,15 @@ package ld28.systems {
 	import ash.tools.ListIteratingSystem;
 	import ld28.components.Motion;
 	import ld28.components.Position;
+	import ld28.GameConfig;
 	import ld28.nodes.MovementNode;
+	
 	public class MovementSystem extends ListIteratingSystem {
-		public function MovementSystem() {
+		private var config:GameConfig;
+		
+		public function MovementSystem(config:GameConfig) {
 			super(MovementNode, updateNode);
+			this.config = config;
 		}
 		
 		private function updateNode(node:MovementNode, time:Number):void {
@@ -17,8 +22,22 @@ package ld28.systems {
 			position.position.x += motion.velocity.x * time;
 			position.position.y += motion.velocity.y * time;
 			
+			if (position.position.x > this.config.width) {
+				position.position.x -= this.config.width;
+			}
+			if (position.position.x < 0) {
+				position.position.x += this.config.width;
+			}
+			if (position.position.y > this.config.height) {
+				position.position.y -= this.config.height;
+			}
+			if (position.position.y < 0) {
+				position.position.y += this.config.height;
+			}
+			
 			motion.velocity.x *= motion.damping;
 			motion.velocity.y *= motion.damping;
+		
 		}
 	}
 }

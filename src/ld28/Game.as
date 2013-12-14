@@ -41,7 +41,7 @@ package ld28 {
 			
 			// add systems
 			engine.addSystem(new RenderSystem(container), 0);
-			engine.addSystem(new MovementSystem(), 0);
+			engine.addSystem(new MovementSystem(config), 0);
 			engine.addSystem(new MotionControlSystem(keyPoll), 0);
 			engine.addSystem(new MoverEnergyStorageSystem(), 0);
 			engine.addSystem(new CollisionSystem(creator), 0);
