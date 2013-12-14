@@ -24,17 +24,17 @@ package ld28 {
 			return gameEntity;
 		}
 		
-		public function createCircle():Entity {
-			var circle:Entity = new Entity();
+		public function createPlayer():Entity {
+			var entity:Entity = new Entity();
 			
 			var circleView:CircleView = new CircleView();
-			with (circle) {
+			with (entity) {
 				add(new Position(0, 0, 0));
 				add(new Display(circleView));
 			}
 			
-			engine.addEntity(circle);
-			return circle;
+			engine.addEntity(entity);
+			return entity;
 		}
 	
 	}

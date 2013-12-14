@@ -33,7 +33,7 @@ package ld28 {
 			
 			// create entities
 			creator.createGame();
-			creator.createCircle();
+			creator.createPlayer();
 		}
 		
 		public function start():void {
