@@ -1,7 +1,8 @@
-package {
+package ld28 {
 	import ash.core.Engine;
 	import ash.tick.FrameTickProvider;
 	import flash.display.DisplayObjectContainer;
+	import systems.RenderSystem;
 	
 	/**
 	 * ...
@@ -26,11 +27,12 @@ package {
 			engine = new Engine();
 			creator = new EntityCreator(engine);
 			
-			// add systems here
-			// ...
+			// add systems
+			engine.addSystem( new RenderSystem( container ), 0 );
 			
 			// create entities
 			creator.createGame();
+			creator.createCircle();
 		}
 		
 		public function start():void {

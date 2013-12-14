@@ -1,4 +1,4 @@
-package {
+package ld28 {
 	import ash.core.Engine;
 	import ash.core.Entity;
 	
@@ -15,10 +15,9 @@ package {
 		}
 		
 		public function createGame():Entity {
-			var hud:HudView = new HudView();
-			
 			var gameEntity:Entity = new Entity("game");
 			engine.addEntity(gameEntity);
+			
 			return gameEntity;
 		}
 		

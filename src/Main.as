@@ -1,6 +1,7 @@
 package {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import ld28.Game;
 	
 	[SWF(width='600',height='450',frameRate='60',backgroundColor='#000000')]
 	
