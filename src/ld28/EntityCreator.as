@@ -2,6 +2,7 @@ package ld28 {
 	import ash.core.Engine;
 	import ash.core.Entity;
 	import ld28.components.Display;
+	import ld28.components.Motion;
 	import ld28.components.Position;
 	import ld28.graphics.CircleView;
 	
@@ -31,6 +32,7 @@ package ld28 {
 			with (entity) {
 				add(new Position(0, 0, 0));
 				add(new Display(circleView));
+				add(new Motion(10, 10, 0.95));
 			}
 			
 			engine.addEntity(entity);
