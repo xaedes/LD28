@@ -48,8 +48,9 @@ package ld28.systems {
 					offset.normalize(energyStorageEmitter.spawnRadius);
 					particlePos.position = position.position.add(offset);
 					
+					// add velocity
 					offset.normalize(Utils.randomRange(energyStorageEmitter.spawnSpeedMin, energyStorageEmitter.spawnSpeedMax));
-					particleMotion.velocity = motion.velocity.add(offset);
+					particleMotion.velocity = Utils.mult(motion.velocity, energyStorageEmitter.emitterVelocityInfluence).add(offset);
 				}
 				
 			}

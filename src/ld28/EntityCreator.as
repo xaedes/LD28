@@ -5,6 +5,7 @@ package ld28 {
 	import ld28.components.Audio;
 	import ld28.components.Collision;
 	import ld28.components.Display;
+	import ld28.components.ElasticCollision;
 	import ld28.components.EnergyParticle;
 	import ld28.components.EnergyProducer;
 	import ld28.components.EnergyStorage;
@@ -15,7 +16,6 @@ package ld28 {
 	import ld28.components.MotionControls;
 	import ld28.components.Mover;
 	import ld28.components.Position;
-	import ld28.components.ElasticCollision;
 	import ld28.graphics.CircleView;
 	import ld28.graphics.EnergyProducerView;
 	import ld28.graphics.MoverView;
@@ -57,7 +57,7 @@ package ld28 {
 				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
 				add(new Collision(radius));
 				add(new Audio());
-				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 1, 1));
+				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 0, 1, 1));
 				add(new Mass(radius * radius * Math.PI * density));
 				add(new ElasticCollision(0.5));
 			}
@@ -100,7 +100,7 @@ package ld28 {
 				add(new EnergyStorage(_maxEnergy, Utils.randomRange(0, _maxEnergy)));
 				add(new Collision(radius));
 				add(new EnergyProducer(0.1, 0.01));
-				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 5, 5));
+				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 0, 5, 5));
 				add(new HasEnergyStorageView(energyProducerView.energyStorageView));
 				add(new Mass(radius * radius * Math.PI * density));
 				add(new ElasticCollision(0.1));
