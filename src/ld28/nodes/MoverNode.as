@@ -6,11 +6,11 @@ package ld28.nodes {
 	import ld28.components.Mover;
 	import ld28.components.Position;
 	
-	public class MoverEnergyStorageNode extends Node {
+	public class MoverNode extends Node {
 		public var mover:Mover;
 		public var position:Position
 		public var energyStorage:EnergyStorage;
 		public var collision:Collision;
-		public var audio:Audio;
+
 	}
 }

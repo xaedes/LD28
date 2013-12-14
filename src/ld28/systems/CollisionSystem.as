@@ -6,7 +6,7 @@ package ld28.systems {
 	import ld28.Assets;
 	import ld28.EntityCreator;
 	import ld28.nodes.EnergyParticleCollisionNode;
-	import ld28.nodes.MoverEnergyStorageNode;
+	import ld28.nodes.MoverCollisionNode;
 	
 	public class CollisionSystem extends System {
 		private var creator:EntityCreator;
@@ -19,12 +19,12 @@ package ld28.systems {
 		
 		override public function addToEngine(engine:Engine):void {
 			energyParticles = engine.getNodeList(EnergyParticleCollisionNode);
-			movers = engine.getNodeList(MoverEnergyStorageNode);
+			movers = engine.getNodeList(MoverCollisionNode);
 		}
 		
 		override public function update(time:Number):void {
 			var energyParticle:EnergyParticleCollisionNode;
-			var mover:MoverEnergyStorageNode;
+			var mover:MoverCollisionNode;
 			
 			for (energyParticle = energyParticles.head; energyParticle; energyParticle = energyParticle.next) {
 				for (mover = movers.head; mover; mover = mover.next) {
