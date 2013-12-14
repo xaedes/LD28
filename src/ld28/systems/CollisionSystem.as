@@ -29,6 +29,9 @@ package ld28.systems {
 				for (mover = movers.head; mover; mover = mover.next) {
 					if (Point.distance(mover.position.position, energyParticle.position.position) <= (energyParticle.collision.radius + mover.collision.radius)) {
 						creator.destroyEntity(energyParticle.entity);
+						
+						mover.energyStorage.energy += energyParticle.energyStorage.energy;
+						
 						break;
 					}
 				}
