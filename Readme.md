@@ -16,10 +16,10 @@ So you have to collect and/or produce more energy.
 
 ## Stack
 
-FlashDevelop
-ActionScript3
-Ash Framework
-SmartGit
+* FlashDevelop
+* ActionScript3
+* Ash Framework
+* SmartGit
 
 ## Todo
 
