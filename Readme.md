@@ -24,7 +24,8 @@ So you have to collect and/or produce more energy.
 * AudaCity
 
 ### Todo
-
+* add Collision between Mover and EnergyProducer that pushes both of them away
+* add vector field to simulate flow  
 
 ### Current Live Version can be viewed here:
 

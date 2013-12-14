@@ -3,7 +3,7 @@ package {
 	import flash.events.Event;
 	import ld28.Game;
 	
-	[SWF(width='600',height='450',frameRate='60',backgroundColor='#000000')]
+	[SWF(width='800',height='600',frameRate='60',backgroundColor='#000000')]
 	
 	public class Main extends Sprite {
 		private var game:Game;

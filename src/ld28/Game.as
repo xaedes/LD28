@@ -59,7 +59,7 @@ package ld28 {
 				creator.createEnergyParticle();
 			}
 			// spawn energy producers
-			for (var j:int = 0; j < 10; j++) {
+			for (var j:int = 0; j < 100; j++) {
 				creator.createEnergyProducer();
 			}
 			creator.createPlayer();

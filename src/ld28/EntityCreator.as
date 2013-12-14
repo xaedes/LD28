@@ -10,10 +10,12 @@ package ld28 {
 	import ld28.components.EnergyStorage;
 	import ld28.components.EnergyStorageEmitter;
 	import ld28.components.HasEnergyStorageView;
+	import ld28.components.Mass;
 	import ld28.components.Motion;
 	import ld28.components.MotionControls;
 	import ld28.components.Mover;
 	import ld28.components.Position;
+	import ld28.components.ElasticCollision;
 	import ld28.graphics.CircleView;
 	import ld28.graphics.EnergyProducerView;
 	import ld28.graphics.MoverView;
@@ -42,6 +44,7 @@ package ld28 {
 			var entity:Entity = new Entity();
 			
 			var radius:Number = 10;
+			var density:Number = 1;
 			
 			var moverView:MoverView = new MoverView(radius);
 			with (entity) {
@@ -55,6 +58,8 @@ package ld28 {
 				add(new Collision(radius));
 				add(new Audio());
 				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 1, 1));
+				add(new Mass(radius * radius * Math.PI * density));
+				add(new ElasticCollision(0.5));
 			}
 			
 			engine.addEntity(entity);
@@ -84,18 +89,21 @@ package ld28 {
 			var entity:Entity = new Entity();
 			
 			var radius:Number = 5;
+			var density:Number = 1;
 			var _maxEnergy:Number = Utils.randomRange(5, 15);
 			
 			var energyProducerView:EnergyProducerView = new EnergyProducerView(radius);
 			with (entity) {
 				add(new Position(Utils.randomRange(0, config.width), Utils.randomRange(0, config.height)));
 				add(new Display(energyProducerView));
-				add(new Motion(Utils.randomRange(-10, 10), Utils.randomRange(-10, 10), 1));
+				add(new Motion(Utils.randomRange(-50, 50), Utils.randomRange(-50, 50), 0.95));
 				add(new EnergyStorage(_maxEnergy, Utils.randomRange(0, _maxEnergy)));
 				add(new Collision(radius));
 				add(new EnergyProducer(0.1, 0.01));
 				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 5, 5));
 				add(new HasEnergyStorageView(energyProducerView.energyStorageView));
+				add(new Mass(radius * radius * Math.PI * density));
+				add(new ElasticCollision(0.1));
 			}
 			engine.addEntity(entity);
 			return entity;
