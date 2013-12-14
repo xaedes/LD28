@@ -47,7 +47,6 @@ package ld28.systems {
 				
 				displayObject.x = position.position.x;
 				displayObject.y = position.position.y;
-				displayObject.rotation = position.rotation * 180 / Math.PI;
 			}
 		}
 		

@@ -3,11 +3,9 @@ package ld28.components {
 	
 	public class Position {
 		public var position:Point;
-		public var rotation:Number = 0;
 		
-		public function Position(x:Number, y:Number, rotation:Number) {
+		public function Position(x:Number, y:Number) {
 			position = new Point(x, y);
-			this.rotation = rotation;
 		}
 	}
 }
