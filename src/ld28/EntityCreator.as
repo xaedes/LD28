@@ -1,6 +1,9 @@
 package ld28 {
 	import ash.core.Engine;
 	import ash.core.Entity;
+	import ld28.components.Display;
+	import ld28.components.Position;
+	import ld28.graphics.CircleView;
 	
 	public class EntityCreator {
 		private var engine:Engine;
@@ -23,6 +26,12 @@ package ld28 {
 		
 		public function createCircle():Entity {
 			var circle:Entity = new Entity();
+			
+			var circleView:CircleView = new CircleView();
+			with (circle) {
+				add(new Position(0, 0, 0));
+				add(new Display(circleView));
+			}
 			
 			engine.addEntity(circle);
 			return circle;
