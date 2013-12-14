@@ -3,6 +3,7 @@ package ld28.systems {
 	import ash.core.NodeList;
 	import ash.core.System;
 	import flash.geom.Point;
+	import ld28.Assets;
 	import ld28.EntityCreator;
 	import ld28.nodes.EnergyParticleCollisionNode;
 	import ld28.nodes.MoverEnergyStorageNode;
@@ -31,6 +32,7 @@ package ld28.systems {
 						creator.destroyEntity(energyParticle.entity);
 						
 						mover.energyStorage.energy += energyParticle.energyStorage.energy;
+						mover.audio.play(Assets.CollectEnergy);
 						
 						break;
 					}

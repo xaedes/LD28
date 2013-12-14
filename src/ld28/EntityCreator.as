@@ -2,6 +2,7 @@ package ld28 {
 	import ash.core.Engine;
 	import ash.core.Entity;
 	import flash.ui.Keyboard;
+	import ld28.components.Audio;
 	import ld28.components.Collision;
 	import ld28.components.Display;
 	import ld28.components.EnergyParticle;
@@ -47,6 +48,7 @@ package ld28 {
 				add(new EnergyStorage(10, 5));
 				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
 				add(new Collision(radius));
+				add(new Audio());
 			}
 			
 			engine.addEntity(entity);

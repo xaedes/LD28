@@ -32,7 +32,6 @@ package ld28.graphics {
 			} else {
 				color = 0;
 			}
-			trace(value);
 			color = 0x010101 * color;
 			graphics.clear();
 			graphics.beginFill(color);

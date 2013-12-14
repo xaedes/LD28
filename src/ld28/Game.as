@@ -2,6 +2,7 @@ package ld28 {
 	import ash.core.Engine;
 	import ash.tick.FrameTickProvider;
 	import flash.display.DisplayObjectContainer;
+	import ld28.systems.AudioSystem;
 	import ld28.systems.CollisionSystem;
 	import ld28.systems.MotionControlSystem;
 	import ld28.systems.MovementSystem;
@@ -44,6 +45,7 @@ package ld28 {
 			engine.addSystem(new MotionControlSystem(keyPoll), 0);
 			engine.addSystem(new MoverEnergyStorageSystem(), 0);
 			engine.addSystem(new CollisionSystem(creator), 0);
+			engine.addSystem(new AudioSystem(), 0);
 			
 			// create entities
 			creator.createGame();
