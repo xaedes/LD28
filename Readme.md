@@ -1,10 +1,10 @@
 
 
 My Entry for Ludum Dare 28 - Theme "You only get one" 
-================================
-
-Game Idea
 -------------------------
+
+## Game Idea
+
 It is a Osmos/Spore/CellCraft/Flow combination.
 You will only get one (biological) cell.
 But you can improve your cell!
@@ -14,19 +14,18 @@ moving consumes energy. If your internal energy is depleted you won't be able to
 So you have to collect and/or produce more energy.
 
 
-Stack
--------------------------
+## Stack
+
 FlashDevelop
 ActionScript3
 Ash Framework
 SmartGit
 
-Todo
--------------------------
+## Todo
 
 
-Current Live Version can be viewed here:
--------------------------	
+## Current Live Version can be viewed here:
+
 http://xaedes.de/dev/ld28/
 	
 Controls: WASD
