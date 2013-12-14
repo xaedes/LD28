@@ -1,8 +1,10 @@
 package ld28 {
 	import ash.core.Engine;
 	import ash.core.Entity;
+	import flash.ui.Keyboard;
 	import ld28.components.Display;
 	import ld28.components.Motion;
+	import ld28.components.MotionControls;
 	import ld28.components.Position;
 	import ld28.graphics.CircleView;
 	
@@ -33,6 +35,7 @@ package ld28 {
 				add(new Position(0, 0, 0));
 				add(new Display(circleView));
 				add(new Motion(20, 20, 0.995));
+				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 100));
 			}
 			
 			engine.addEntity(entity);
