@@ -20,6 +20,8 @@ So you have to collect and/or produce more energy.
 * ActionScript3
 * Ash Framework
 * SmartGit
+* http://www.bfxr.net/ 
+* AudaCity
 
 ### Todo
 
