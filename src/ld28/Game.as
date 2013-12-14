@@ -16,6 +16,7 @@ package ld28 {
 		private var tickProvider:FrameTickProvider;
 		private var creator:EntityCreator;
 		private var keyPoll:KeyPoll;
+		private var config:GameConfig;
 		
 		public function Game(container:DisplayObjectContainer, width:Number, height:Number) {
 			this.container = container;
@@ -29,8 +30,11 @@ package ld28 {
 		
 		private function prepare(width:Number, height:Number):void {
 			engine = new Engine();
-			creator = new EntityCreator(engine);
 			keyPoll = new KeyPoll(container.stage);
+			config = new GameConfig();
+			config.width = width;
+			config.height = height;
+			creator = new EntityCreator(engine,config);
 			
 			// add systems
 			engine.addSystem(new RenderSystem(container), 0);

@@ -10,10 +10,11 @@ package ld28 {
 	
 	public class EntityCreator {
 		private var engine:Engine;
-		private var waitEntity:Entity;
+		private var config:GameConfig;
 		
-		public function EntityCreator(engine:Engine) {
+		public function EntityCreator(engine:Engine, config:GameConfig) {
 			this.engine = engine;
+			this.config = config;
 		}
 		
 		public function destroyEntity(entity:Entity):void {
@@ -32,7 +33,7 @@ package ld28 {
 			
 			var circleView:CircleView = new CircleView(10);
 			with (entity) {
-				add(new Position(0, 0, 0));
+				add(new Position(config.width / 2, config.height / 2, 0));
 				add(new Display(circleView));
 				add(new Motion(20, 20, 0.95));
 				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
