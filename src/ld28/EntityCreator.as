@@ -64,7 +64,7 @@ package ld28 {
 			with (entity) {
 				add(new Position(Utils.randomRange(0, config.width), Utils.randomRange(0, config.height)));
 				add(new Display(circleView));
-				add(new Motion(0, 0, 0.95));
+				add(new Motion(Utils.randomRange(-10, 10), Utils.randomRange(-10, 10), 1));
 				add(new EnergyStorage(1, 1));
 				add(new Collision(radius));
 				add(new EnergyParticle());
