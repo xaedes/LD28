@@ -2,6 +2,7 @@ package ld28 {
 	import ash.core.Engine;
 	import ash.tick.FrameTickProvider;
 	import flash.display.DisplayObjectContainer;
+	import ld28.systems.MovementSystem;
 	import ld28.systems.RenderSystem;
 	
 	/**
@@ -30,6 +31,7 @@ package ld28 {
 			
 			// add systems
 			engine.addSystem( new RenderSystem( container ), 0 );
+			engine.addSystem( new MovementSystem(), 0 );
 			
 			// create entities
 			creator.createGame();

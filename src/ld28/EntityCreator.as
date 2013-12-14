@@ -32,7 +32,7 @@ package ld28 {
 			with (entity) {
 				add(new Position(0, 0, 0));
 				add(new Display(circleView));
-				add(new Motion(10, 10, 0.95));
+				add(new Motion(20, 20, 0.995));
 			}
 			
 			engine.addEntity(entity);
