@@ -3,8 +3,8 @@ package ld28.systems {
 	import ld28.components.Motion;
 	import ld28.components.MotionControls;
 	import ld28.components.Position;
-	import ld28.nodes.MotionControlNode;
 	import ld28.KeyPoll;
+	import ld28.nodes.MotionControlNode;
 	
 	public class MotionControlSystem extends ListIteratingSystem {
 		private var keyPoll:KeyPoll;

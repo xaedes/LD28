@@ -1,15 +1,12 @@
-package ld28.components
-{
+package ld28.components {
 	import flash.geom.Point;
 	
-	public class Position
-	{
-		public var position : Point;
-		public var rotation : Number = 0;
+	public class Position {
+		public var position:Point;
+		public var rotation:Number = 0;
 		
-		public function Position( x : Number, y : Number, rotation : Number )
-		{
-			position = new Point( x, y );
+		public function Position(x:Number, y:Number, rotation:Number) {
+			position = new Point(x, y);
 			this.rotation = rotation;
 		}
 	}
