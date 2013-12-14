@@ -22,6 +22,7 @@ package ld28 {
 		// todo 
 		// - add simple circle to be drawn
 		//   - add entity for it
+		//   - add movement
 		
 		private function prepare(width:Number, height:Number):void {
 			engine = new Engine();
