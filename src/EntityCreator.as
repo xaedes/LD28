@@ -21,6 +21,13 @@ package {
 			engine.addEntity(gameEntity);
 			return gameEntity;
 		}
+		
+		public function createCircle():Entity {
+			var circle:Entity = new Entity();
+			
+			engine.addEntity(circle);
+			return circle;
+		}
 	
 	}
 }
