@@ -1,5 +1,5 @@
 package ld28.components {
-	import flash.display.DisplayObject;
+	import ld28.graphics.EnergyStorageView;
 	
 	public class EnergyStorage {
 		public var maxEnergy:Number;

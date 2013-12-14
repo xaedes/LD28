@@ -4,6 +4,7 @@ package ld28 {
 	import flash.display.DisplayObjectContainer;
 	import ld28.systems.MotionControlSystem;
 	import ld28.systems.MovementSystem;
+	import ld28.systems.MoverEnergyStorageSystem;
 	import ld28.systems.RenderSystem;
 	
 	/**
@@ -34,12 +35,13 @@ package ld28 {
 			config = new GameConfig();
 			config.width = width;
 			config.height = height;
-			creator = new EntityCreator(engine,config);
+			creator = new EntityCreator(engine, config);
 			
 			// add systems
 			engine.addSystem(new RenderSystem(container), 0);
 			engine.addSystem(new MovementSystem(), 0);
 			engine.addSystem(new MotionControlSystem(keyPoll), 0);
+			engine.addSystem(new MoverEnergyStorageSystem(), 0);
 			
 			// create entities
 			creator.createGame();

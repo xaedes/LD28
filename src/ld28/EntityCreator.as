@@ -6,6 +6,7 @@ package ld28 {
 	import ld28.components.EnergyStorage;
 	import ld28.components.Motion;
 	import ld28.components.MotionControls;
+	import ld28.components.Mover;
 	import ld28.components.Position;
 	import ld28.graphics.MoverView;
 	
@@ -32,12 +33,14 @@ package ld28 {
 		public function createPlayer():Entity {
 			var entity:Entity = new Entity();
 			
+			//var energyStorageView:EnergyStorageView = new EnergyStorageView(10);
 			var moverView:MoverView = new MoverView(10);
 			with (entity) {
 				add(new Position(config.width / 2, config.height / 2, 0));
 				add(new Display(moverView));
+				add(new Mover(moverView, 0.001));
 				add(new Motion(0, 0, 0.95));
-				add(new EnergyStorage(10, 10));
+				add(new EnergyStorage(10, 5));
 				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
 			}
 			
