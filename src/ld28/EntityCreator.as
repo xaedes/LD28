@@ -30,12 +30,12 @@ package ld28 {
 		public function createPlayer():Entity {
 			var entity:Entity = new Entity();
 			
-			var circleView:CircleView = new CircleView();
+			var circleView:CircleView = new CircleView(10);
 			with (entity) {
 				add(new Position(0, 0, 0));
 				add(new Display(circleView));
-				add(new Motion(20, 20, 0.995));
-				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 100));
+				add(new Motion(20, 20, 0.95));
+				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
 			}
 			
 			engine.addEntity(entity);
