@@ -58,7 +58,7 @@ package ld28 {
 			var entity:Entity = new Entity();
 			
 			var radius:Number = 20;
-			var density:Number = 1;
+			var density:Number = 10;
 			
 			var pos:Point = new Point(config.width / 2, config.height / 2);
 			
@@ -166,7 +166,7 @@ package ld28 {
 			var entity:Entity = new Entity();
 			
 			var radius:Number = 10;
-			var radarRadius:Number = 50;
+			var radarRadius:Number = 20;
 			var density:Number = 1;
 			
 			var pos:Point = new Point(Utils.randomRange(0, config.width), Utils.randomRange(0, config.height));
@@ -181,10 +181,10 @@ package ld28 {
 				add(new Circle(radius));
 				add(new SpatialHashed());
 				add(new Mass(radius * radius * Math.PI * density));
-				add(new SolidCollision(0.05));
+				add(new SolidCollision(1));
 				add(new Collision());
 				add(new Display(membranPartView));
-				add(new Motion(Utils.randomRange(-50, 50), Utils.randomRange(-50, 50), 0.995));
+				add(new Motion(Utils.randomRange(-50, 50), Utils.randomRange(-50, 50), 0.95));
 				add(new Radar(radar));
 				add(new Membran());
 			}
@@ -210,7 +210,7 @@ package ld28 {
 				add(new Position(0, 0));
 				add(new Redrawing(view));
 				add(new Display(view));
-				add(new DistanceConstraint(entity1, entity2, distance));
+				add(new DistanceConstraint(entity1, entity2, distance, 1, 0.05));
 			}
 			
 			engine.addEntity(entity);
