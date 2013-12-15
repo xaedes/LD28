@@ -48,7 +48,7 @@ package ld28.systems {
 								continue;
 							}
 							if (node2.membran.connections.length < 2) {
-								trace("foo");
+								//trace("foo");
 								
 								var connection:Entity = creator.createConnection(node1.entity, node2.entity);
 								node1.membran.connections.push(connection);
