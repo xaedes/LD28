@@ -60,13 +60,10 @@ package ld28.systems {
 		}
 		
 		public function getCell(x:int, y:int):GridCell {
-			while (x < 0) {
-				x += gridWidth;
-			}
-			while (y < 0) {
-				y += gridHeight;
-			}
-			return GridCell(grid.get(x % gridWidth, y % gridHeight));
+			x = int(Math.max(0, Math.min(gridWidth - 1, x)));
+			y = int(Math.max(0, Math.min(gridHeight - 1, y)));
+			
+			return GridCell(grid.get(x, y));
 		}
 		
 		private function removeNode(node:SpatialHashingNode):void {
