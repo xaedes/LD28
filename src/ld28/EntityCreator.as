@@ -16,17 +16,20 @@ package ld28 {
 	import ld28.components.Gravity;
 	import ld28.components.HasEnergyStorageView;
 	import ld28.components.Mass;
+	import ld28.components.Membran;
 	import ld28.components.Motion;
 	import ld28.components.MotionControls;
 	import ld28.components.Mover;
 	import ld28.components.Player;
 	import ld28.components.Position;
 	import ld28.components.Radar;
+	import ld28.components.Redrawing;
 	import ld28.components.Size;
 	import ld28.components.SolidCollision;
 	import ld28.components.SpatialHashed;
 	import ld28.graphics.CircleView;
 	import ld28.graphics.EnergyProducerView;
+	import ld28.graphics.LineView;
 	import ld28.graphics.MembranPartView;
 	import ld28.graphics.MoverView;
 	
@@ -153,6 +156,7 @@ package ld28 {
 				add(new Circle(radius));
 				add(new Display(view));
 				add(new Collision());
+				add(new SpatialHashed());
 			}
 			return entity;
 		}
@@ -181,6 +185,28 @@ package ld28 {
 				add(new Display(membranPartView));
 				add(new Motion(Utils.randomRange(-50, 50), Utils.randomRange(-50, 50), 0.995));
 				add(new Radar(radar));
+				add(new Membran());
+			}
+			
+			engine.addEntity(entity);
+			return entity;
+		}
+		
+		public function createConnection(entity1:Entity, entity2:Entity):Entity {
+			if (!(entity1.has(Position) && entity2.has(Position))) {
+				return null;
+			}
+			
+			var entity:Entity = new Entity();
+			
+			var pos1:Position = Position(entity1.get(Position));
+			var pos2:Position = Position(entity2.get(Position));
+			
+			var view:LineView = new LineView(pos1.position, pos2.position);
+			with (entity) {
+				add(new Position(0, 0));
+				add(new Redrawing(view));
+				add(new Display(view));
 			}
 			
 			engine.addEntity(entity);
