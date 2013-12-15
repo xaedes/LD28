@@ -3,6 +3,7 @@ package ld28 {
 	import ash.tick.FrameTickProvider;
 	import flash.display.DisplayObjectContainer;
 	import ld28.systems.AudioSystem;
+	import ld28.systems.CollisionSystem;
 	import ld28.systems.EnergyCollectingCollisionSystem;
 	import ld28.systems.EnergyProducerSystem;
 	import ld28.systems.EnergyStorageEmitterSystem;
@@ -42,13 +43,15 @@ package ld28 {
 			config.height = height;
 			creator = new EntityCreator(engine, config);
 			
-			// add systems
+			// add systems 
+			// todo: add priorites (CollisionSystem < SolidCollisionSystem, CollisionSystem < EnergyCollectingCollisionSystem)
 			engine.addSystem(new RenderSystem(container), 0);
 			engine.addSystem(new MovementSystem(config), 0);
 			engine.addSystem(new MotionControlSystem(keyPoll), 0);
 			engine.addSystem(new EnergyStorageViewSystem(), 0);
-			engine.addSystem(new SolidCollisionSystem(creator), 0);
-			engine.addSystem(new EnergyCollectingCollisionSystem(creator), 0);
+			engine.addSystem(new CollisionSystem(), 0);
+			engine.addSystem(new SolidCollisionSystem(), 0);
+			engine.addSystem(new EnergyCollectingCollisionSystem(creator, config), 0);
 			engine.addSystem(new AudioSystem(), 0);
 			engine.addSystem(new EnergyProducerSystem(), 0);
 			engine.addSystem(new EnergyStorageEmitterSystem(creator), 0);
@@ -61,7 +64,7 @@ package ld28 {
 				creator.createEnergyParticle();
 			}
 			// spawn energy producers
-			for (var j:int = 0; j < 100; j++) {
+			for (var j:int = 0; j < 10; j++) {
 				creator.createEnergyProducer();
 			}
 			creator.createPlayer();

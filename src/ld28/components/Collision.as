@@ -1,10 +1,10 @@
 package ld28.components {
+	import ash.core.Entity;
 	
 	public class Collision {
-		public var radius:Number = 0;
+		public var collidingEntities:Vector.<Entity> = new Vector.<Entity>();
 		
-		public function Collision(radius:Number) {
-			this.radius = radius;
+		public function Collision() {
 		}
 	}
 }

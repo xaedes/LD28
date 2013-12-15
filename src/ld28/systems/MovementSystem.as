@@ -35,6 +35,8 @@ package ld28.systems {
 				position.position.y += this.config.height;
 			}
 			
+			position.changed.dispatch(node.entity);
+			
 			motion.velocity.x *= motion.damping;
 			motion.velocity.y *= motion.damping;
 		

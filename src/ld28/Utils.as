@@ -1,5 +1,6 @@
 package ld28 {
 	import flash.geom.Point;
+	import flash.geom.Rectangle;
 	
 	/**
 	 * ...
@@ -25,7 +26,10 @@ package ld28 {
 		static public function mult(vec:Point, scalar:Number):Point {
 			return new Point(vec.x * scalar, vec.y * scalar);
 		}
-	
+		
+		static public function rectFromCenter(center:Point, width:Number, height:Number):Rectangle {
+			return new Rectangle(center.x - width / 2, center.y - height / 2, width, height);
+		}
 	}
 
 }
