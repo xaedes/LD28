@@ -20,9 +20,8 @@ So you have to collect and/or produce more energy.
 * ActionScript3
 * Ash Framework
 * Data Structures For Games (http://polygonal.github.io/ds/)
-
 * SmartGit
-* http://www.bfxr.net/ 
+* bfxr (http://www.bfxr.net/)
 * AudaCity
 
 ### Todo
