@@ -48,20 +48,21 @@ package ld28 {
 			
 			// add systems 
 			// todo: add priorites (CollisionSystem < SolidCollisionSystem, CollisionSystem < EnergyCollectingCollisionSystem)
-			engine.addSystem(new RenderSystem(container), 0);
-			engine.addSystem(new MovementSystem(config), 0);
-			engine.addSystem(new MotionControlSystem(keyPoll), 0);
-			engine.addSystem(new EnergyStorageViewSystem(), 0);
-			//engine.addSystem(new CollisionSystem(), 0);
 			var spatialHashingSystem:SpatialHashingSystem = new SpatialHashingSystem(config, 5);
-			engine.addSystem(spatialHashingSystem, 0);
-			engine.addSystem(new CollisionWithSpatialHashingSystem(spatialHashingSystem), 0);
-			engine.addSystem(new SolidCollisionSystem(), 0);
-			engine.addSystem(new EnergyCollectingCollisionSystem(creator, config), 0);
-			engine.addSystem(new AudioSystem(), 0);
-			engine.addSystem(new EnergyProducerSystem(), 0);
-			engine.addSystem(new EnergyStorageEmitterSystem(creator), 0);
-			engine.addSystem(new GravitySystem(config), 0);
+			var k:int = 0;
+			engine.addSystem(new RenderSystem(container), k++);
+			engine.addSystem(new MovementSystem(config), k++);
+			engine.addSystem(new GravitySystem(), k++);
+			engine.addSystem(new MotionControlSystem(keyPoll), k++);
+			engine.addSystem(new EnergyStorageViewSystem(), k++);
+			//engine.addSystem(new CollisionSystem(), 0);
+			engine.addSystem(spatialHashingSystem, k++);
+			engine.addSystem(new CollisionWithSpatialHashingSystem(spatialHashingSystem), k++);
+			engine.addSystem(new EnergyCollectingCollisionSystem(creator, config), k++);
+			engine.addSystem(new SolidCollisionSystem(), k++);
+			engine.addSystem(new AudioSystem(), k++);
+			engine.addSystem(new EnergyProducerSystem(), k++);
+			engine.addSystem(new EnergyStorageEmitterSystem(creator), k++);
 			
 			// create entities
 			creator.createGame();

@@ -85,6 +85,7 @@ package ld28 {
 			var entity:Entity = new Entity();
 			
 			var radius:Number = 2;
+			var density:Number = 1;
 			var pos:Point = new Point(Utils.randomRange(0, config.width), Utils.randomRange(0, config.height));
 			
 			var circleView:CircleView = new CircleView(radius, 0xFFF4BA);
@@ -98,6 +99,9 @@ package ld28 {
 				add(new Collision());
 				add(new EnergyParticle());
 				add(new SpatialHashed());
+				add(new Mass(radius * radius * Math.PI * density));
+					//add(new SolidCollision(0.6));
+					//add(new Gravity(new Point(config.width / 2, 3 * config.height / 4), 5));
 			}
 			
 			engine.addEntity(entity);
@@ -121,15 +125,15 @@ package ld28 {
 				add(new Motion(Utils.randomRange(-50, 50), Utils.randomRange(-50, 50), 0.995));
 				add(new EnergyStorage(_maxEnergy, Utils.randomRange(0, _maxEnergy)));
 				add(new Collision());
-				add(new EnergyProducer(0.1, 0.01));
-				//add(new EnergyProducer(0.1, 0.1));
-				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 1, 5, 5));
+				//add(new EnergyProducer(0.1, 0.01));
+				add(new EnergyProducer(0.1, 0.1));
+				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 1, 5, 1));
 				add(new HasEnergyStorageView(energyProducerView.energyStorageView));
 				add(new Mass(radius * radius * Math.PI * density));
-				add(new SolidCollision(0.91));
+				add(new SolidCollision(0.05));
 				add(new EnergyCollecting());
 				add(new SpatialHashed());
-				add(new Gravity());
+				add(new Gravity(new Point(config.width / 2, 1 * config.height / 4), 3));
 			}
 			engine.addEntity(entity);
 			return entity;
