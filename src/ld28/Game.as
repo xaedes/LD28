@@ -2,6 +2,7 @@ package ld28 {
 	import ash.core.Engine;
 	import ash.tick.FrameTickProvider;
 	import flash.display.DisplayObjectContainer;
+	import ld28.systems.AnchorSystem;
 	import ld28.systems.AudioSystem;
 	import ld28.systems.CollisionSystem;
 	import ld28.systems.CollisionWithSpatialHashingSystem;
@@ -60,20 +61,26 @@ package ld28 {
 			engine.addSystem(new CollisionWithSpatialHashingSystem(spatialHashingSystem), k++);
 			engine.addSystem(new EnergyCollectingCollisionSystem(creator, config), k++);
 			engine.addSystem(new SolidCollisionSystem(), k++);
+			engine.addSystem(new EnergyStorageEmitterSystem(creator), k++);
+			engine.addSystem(new AnchorSystem(), k++);
 			engine.addSystem(new AudioSystem(), k++);
 			engine.addSystem(new EnergyProducerSystem(), k++);
-			engine.addSystem(new EnergyStorageEmitterSystem(creator), k++);
 			
 			// create entities
 			creator.createGame();
 			
+			var i:int;
 			// spawn energy particles
-			for (var i:int = 0; i < 10; i++) {
+			for (i = 0; i < 10; i++) {
 				creator.createEnergyParticle();
 			}
 			// spawn energy producers
-			for (var j:int = 0; j < 50; j++) {
+			for (i = 0; i < 10; i++) {
 				creator.createEnergyProducer();
+			}
+			// spawn membran parts
+			for (i = 0; i < 10; i++) {
+				creator.createMembranPart();
 			}
 			creator.createPlayer();
 		}

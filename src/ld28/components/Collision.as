@@ -7,6 +7,7 @@ package ld28.components {
 		//public var collidingEntities:DLL = new DLL(5);
 		
 		public function Collision() {
+		
 		}
 	}
 }

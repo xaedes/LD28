@@ -3,6 +3,7 @@ package ld28 {
 	import ash.core.Entity;
 	import flash.geom.Point;
 	import flash.ui.Keyboard;
+	import ld28.components.Anchor;
 	import ld28.components.Audio;
 	import ld28.components.Circle;
 	import ld28.components.Collision;
@@ -20,11 +21,13 @@ package ld28 {
 	import ld28.components.Mover;
 	import ld28.components.Player;
 	import ld28.components.Position;
+	import ld28.components.Radar;
 	import ld28.components.Size;
 	import ld28.components.SolidCollision;
 	import ld28.components.SpatialHashed;
 	import ld28.graphics.CircleView;
 	import ld28.graphics.EnergyProducerView;
+	import ld28.graphics.MembranPartView;
 	import ld28.graphics.MoverView;
 	
 	public class EntityCreator {
@@ -125,9 +128,9 @@ package ld28 {
 				add(new Motion(Utils.randomRange(-50, 50), Utils.randomRange(-50, 50), 0.995));
 				add(new EnergyStorage(_maxEnergy, Utils.randomRange(0, _maxEnergy)));
 				add(new Collision());
-				//add(new EnergyProducer(0.1, 0.01));
-				add(new EnergyProducer(0.1, 0.1));
-				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 1, 5, 1));
+				add(new EnergyProducer(0.1, 0.01));
+				//add(new EnergyProducer(0.1, 0.1));
+				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 1, 5, 5));
 				add(new HasEnergyStorageView(energyProducerView.energyStorageView));
 				add(new Mass(radius * radius * Math.PI * density));
 				add(new SolidCollision(0.05));
@@ -135,6 +138,51 @@ package ld28 {
 				add(new SpatialHashed());
 				add(new Gravity(new Point(config.width / 2, 1 * config.height / 4), 3));
 			}
+			engine.addEntity(entity);
+			return entity;
+		}
+		
+		public function createRadar(radius:Number):Entity {
+			var entity:Entity = new Entity();
+			engine.addEntity(entity);
+			
+			var view:CircleView = new CircleView(radius, 0xFFFFFF, 0.1);
+			with (entity) {
+				add(new Position(0, 0));
+				add(new Size(new Point(radius * 2, radius * 2)));
+				add(new Circle(radius));
+				add(new Display(view));
+				add(new Collision());
+			}
+			return entity;
+		}
+		
+		public function createMembranPart():Entity {
+			var entity:Entity = new Entity();
+			
+			var radius:Number = 10;
+			var radarRadius:Number = 50;
+			var density:Number = 1;
+			
+			var pos:Point = new Point(Utils.randomRange(0, config.width), Utils.randomRange(0, config.height));
+			
+			var radar:Entity = createRadar(radarRadius);
+			radar.add(new Anchor(entity));
+			
+			var membranPartView:MembranPartView = new MembranPartView(radius);
+			with (entity) {
+				add(new Position(pos.x, pos.y));
+				add(new Size(new Point(radius * 2, radius * 2)));
+				add(new Circle(radius));
+				add(new SpatialHashed());
+				add(new Mass(radius * radius * Math.PI * density));
+				add(new SolidCollision(0.05));
+				add(new Collision());
+				add(new Display(membranPartView));
+				add(new Motion(Utils.randomRange(-50, 50), Utils.randomRange(-50, 50), 0.995));
+				add(new Radar(radar));
+			}
+			
 			engine.addEntity(entity);
 			return entity;
 		}
