@@ -1,14 +1,8 @@
 package ld28.systems {
 	import ash.tools.ListIteratingSystem;
 	import flash.geom.Point;
-	import ld28.components.EnergyStorage;
 	import ld28.components.Gravity;
-	import ld28.components.Motion;
-	import ld28.components.MotionControls;
-	import ld28.components.Mover;
 	import ld28.components.Position;
-	import ld28.GameConfig;
-	import ld28.KeyPoll;
 	import ld28.nodes.GravityNode;
 	
 	public class GravitySystem extends ListIteratingSystem {

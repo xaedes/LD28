@@ -3,22 +3,22 @@ package ld28.systems {
 	import flash.geom.Point;
 	import ld28.components.EnergyStorage;
 	import ld28.components.Motion;
-	import ld28.components.MotionControls;
+	import ld28.components.KeyboardMotionControls;
 	import ld28.components.Mover;
 	import ld28.components.Position;
 	import ld28.KeyPoll;
-	import ld28.nodes.MotionControlNode;
+	import ld28.nodes.KeyboardMotionControlNode;
 	
-	public class MotionControlSystem extends ListIteratingSystem {
+	public class KeyboardMotionControlSystem extends ListIteratingSystem {
 		private var keyPoll:KeyPoll;
 		
-		public function MotionControlSystem(keyPoll:KeyPoll) {
-			super(MotionControlNode, updateNode);
+		public function KeyboardMotionControlSystem(keyPoll:KeyPoll) {
+			super(KeyboardMotionControlNode, updateNode);
 			this.keyPoll = keyPoll;
 		}
 		
-		private function updateNode(node:MotionControlNode, time:Number):void {
-			var control:MotionControls = node.control;
+		private function updateNode(node:KeyboardMotionControlNode, time:Number):void {
+			var control:KeyboardMotionControls = node.control;
 			var position:Position = node.position;
 			var motion:Motion = node.motion;
 			var energyStorage:EnergyStorage = node.energyStorage;

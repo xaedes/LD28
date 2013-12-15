@@ -20,7 +20,7 @@ package ld28 {
 	import ld28.components.Mass;
 	import ld28.components.Membran;
 	import ld28.components.Motion;
-	import ld28.components.MotionControls;
+	import ld28.components.KeyboardMotionControls;
 	import ld28.components.Mover;
 	import ld28.components.Player;
 	import ld28.components.Position;
@@ -75,7 +75,7 @@ package ld28 {
 				add(new Motion(0, 0, 0.95));
 				add(new EnergyStorage(10, 5));
 				add(new HasEnergyStorageView(moverView.energyStorageView));
-				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
+				add(new KeyboardMotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
 				add(new Audio());
 				//add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 0, 1, 1));
 				add(new Mass(radius * radius * Math.PI * density));
@@ -204,7 +204,7 @@ package ld28 {
 			var pos1:Position = Position(entity1.get(Position));
 			var pos2:Position = Position(entity2.get(Position));
 			
-			var distance:Number = 10;
+			var distance:Number = 9;
 			
 			var view:LineView = new LineView(pos1.position, pos2.position, 0.5 * 2 * 0.6 * 10, 0x35AAFF);
 			with (entity) {

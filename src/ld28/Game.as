@@ -14,7 +14,7 @@ package ld28 {
 	import ld28.systems.EnergyStorageViewSystem;
 	import ld28.systems.GravitySystem;
 	import ld28.systems.MembranSystem;
-	import ld28.systems.MotionControlSystem;
+	import ld28.systems.KeyboardMotionControlSystem;
 	import ld28.systems.MovementSystem;
 	import ld28.systems.RedrawingSystem;
 	import ld28.systems.RenderSystem;
@@ -59,7 +59,7 @@ package ld28 {
 			engine.addSystem(new RenderSystem(container), k++);
 			engine.addSystem(new MovementSystem(config), k++);
 			engine.addSystem(new GravitySystem(), k++);
-			engine.addSystem(new MotionControlSystem(keyPoll), k++);
+			engine.addSystem(new KeyboardMotionControlSystem(keyPoll), k++);
 			engine.addSystem(new EnergyStorageViewSystem(), k++);
 			//engine.addSystem(new CollisionSystem(), 0);
 			engine.addSystem(spatialHashingSystem, k++);

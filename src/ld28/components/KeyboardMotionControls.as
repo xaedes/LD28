@@ -1,6 +1,6 @@
 package ld28.components {
 	
-	public class MotionControls {
+	public class KeyboardMotionControls {
 		// keycodes
 		public var left:uint = 0;
 		public var right:uint = 0;
@@ -9,7 +9,7 @@ package ld28.components {
 		
 		public var accelerationRate:Number = 0;
 		
-		public function MotionControls(left:uint, right:uint, up:uint, down:uint, accelerationRate:Number) {
+		public function KeyboardMotionControls(left:uint, right:uint, up:uint, down:uint, accelerationRate:Number) {
 			this.left = left;
 			this.right = right;
 			this.up = up;
