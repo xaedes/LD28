@@ -6,7 +6,7 @@ package ld28.systems {
 	import ld28.components.KeyboardMotionControls;
 	import ld28.components.Mover;
 	import ld28.components.Position;
-	import ld28.KeyPoll;
+	import ld28.input.KeyPoll;
 	import ld28.nodes.KeyboardMotionControlNode;
 	
 	public class KeyboardMotionControlSystem extends ListIteratingSystem {

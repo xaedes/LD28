@@ -24,12 +24,13 @@
  * THE SOFTWARE.
  */
 
-package ld28 {
+package ld28.input {
 	import flash.display.DisplayObject;
 	import flash.display.DisplayObject;
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.utils.ByteArray;
+	
 	/**
 	 * <p>Games often need to get the current state of various keys in order to respond to user input.
 	 * This is not the same as responding to key down and key up events, but is rather a case of discovering

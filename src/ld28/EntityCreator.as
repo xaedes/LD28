@@ -21,6 +21,7 @@ package ld28 {
 	import ld28.components.Membran;
 	import ld28.components.Motion;
 	import ld28.components.KeyboardMotionControls;
+	import ld28.components.MouseMotionControls;
 	import ld28.components.Mover;
 	import ld28.components.Player;
 	import ld28.components.Position;
@@ -70,12 +71,14 @@ package ld28 {
 				add(new Size(new Point(radius * 2, radius * 2)));
 				add(new Circle(radius));
 				add(new Display(moverView));
-				//add(new Mover(moverView, 0.001));
-				add(new Mover(moverView, 0.0));
+				//add(new Mover(0.001));
+				add(new Mover(0.0));
 				add(new Motion(0, 0, 0.95));
 				add(new EnergyStorage(10, 5));
 				add(new HasEnergyStorageView(moverView.energyStorageView));
 				add(new KeyboardMotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
+				add(new MouseMotionControls(100));
+				
 				add(new Audio());
 				//add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 0, 1, 1));
 				add(new Mass(radius * radius * Math.PI * density));
@@ -168,7 +171,7 @@ package ld28 {
 			
 			var radius:Number = 10;
 			var radarRadius:Number = 20;
-			var density:Number = 1;
+			var density:Number = 0.1;
 			
 			var pos:Point = new Point(Utils.randomRange(0, config.width), Utils.randomRange(0, config.height));
 			
@@ -211,7 +214,7 @@ package ld28 {
 				add(new Position(0, 0));
 				add(new Redrawing(view));
 				add(new Display(view));
-				add(new DistanceConstraint(entity1, entity2, distance, 1, 0.15));
+				add(new DistanceConstraint(entity1, entity2, distance, 1, 0.45));
 			}
 			
 			engine.addEntity(entity);
