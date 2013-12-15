@@ -19,13 +19,23 @@ So you have to collect and/or produce more energy.
 * FlashDevelop
 * ActionScript3
 * Ash Framework
+* Data Structures For Games (http://polygonal.github.io/ds/)
+
 * SmartGit
 * http://www.bfxr.net/ 
 * AudaCity
 
 ### Todo
-* add EnergyCollector component and try to add it to EnergyProducers
-* add MmembranPart entities that connect to each other at their two ends
+* Refactoring:
+	one and only CollisionSystem that stores info about collisions in compononents 
+	energycollectingcollisionsystem and solidcollisionssystem will only use collision compononent info
+* add spatial hashing (in progress)
+* add spatial hashing using CollisionSystem
+ 
+
+
+
+* add MembranPart entities that connect to each other at their two ends
 
 * add randomly distorted vector field that has influence on moving things to simulate a dynamic primeval soup
 
