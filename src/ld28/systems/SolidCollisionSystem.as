@@ -24,7 +24,6 @@ package ld28.systems {
 			var node1:SolidCollisionNode;
 			for (node1 = nodes.head; node1; node1 = node1.next) {
 				for each (var entity:Entity in node1.collision.collidingEntities) {
-					//var node2:SolidCollisionNode = SolidCollisionNode(family.nodeByEntity(entity));
 					var node2:SolidCollisionNode = SolidCollisionNode(family.entities[entity]);
 					if (node2) {
 						handleCollision(node1, node2);
@@ -75,7 +74,7 @@ package ld28.systems {
 		
 		override public function removeFromEngine(engine:Engine):void {
 			nodes = null;
-		
+			family = null;
 		}
 	}
 }
