@@ -30,6 +30,16 @@ package ld28 {
 		static public function rectFromCenter(center:Point, width:Number, height:Number):Rectangle {
 			return new Rectangle(center.x - width / 2, center.y - height / 2, width, height);
 		}
+		
+		static public function pointAdd(a:Point, b:Point):void {
+			a.x += b.x;
+			a.y += b.y;
+		}
+		
+		static public function pointSub(a:Point, b:Point):void {
+			a.x -= b.x;
+			a.y -= b.y;
+		}
 	}
 
 }

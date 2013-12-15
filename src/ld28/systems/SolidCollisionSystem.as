@@ -44,8 +44,9 @@ package ld28.systems {
 				var diffNorm:Point = diff.clone();
 				diffNorm.normalize(1);
 				var moveAppart:Number = radiusSum - diff.length + additionalDistance;
-				node1.position.position = node1.position.position.add(Utils.mult(diffNorm, moveAppart * m2 / massSum));
-				node2.position.position = node2.position.position.subtract(Utils.mult(diffNorm, moveAppart * m1 / massSum));
+				
+				Utils.pointAdd(node1.position.position, Utils.mult(diffNorm, moveAppart * m2 / massSum));
+				Utils.pointSub(node2.position.position, Utils.mult(diffNorm, moveAppart * m1 / massSum));
 				
 				diff = node2.position.position.subtract(node1.position.position);
 				diffNorm = diff.clone();
