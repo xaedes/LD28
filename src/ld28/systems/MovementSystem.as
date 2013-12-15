@@ -23,21 +23,24 @@ package ld28.systems {
 			position.position.y += motion.velocity.y * time;
 			
 			if (position.position.x > this.config.width) {
-				position.position.x -= this.config.width;
+				//position.position.x -= this.config.width;
+				position.position.x = this.config.width;
 			}
 			if (position.position.x < 0) {
-				position.position.x += this.config.width;
+				//position.position.x += this.config.width;
+				position.position.x = 0;
 			}
 			if (position.position.y > this.config.height) {
-				position.position.y -= this.config.height;
+				//position.position.y -= this.config.height;
+				position.position.y = this.config.height;
 			}
 			if (position.position.y < 0) {
-				position.position.y += this.config.height;
+				//position.position.y += this.config.height;
+				position.position.y = 0;
 			}
 			
 			motion.velocity.x *= motion.damping;
 			motion.velocity.y *= motion.damping;
-		
 		}
 	}
 }
