@@ -25,12 +25,15 @@ So you have to collect and/or produce more energy.
 * AudaCity
 
 ### Todo
-* Refactoring:
-	one and only CollisionSystem that stores info about collisions in compononents 
-	energycollectingcollisionsystem and solidcollisionssystem will only use collision compononent info
-* add spatial hashing (in progress)
-* add spatial hashing using CollisionSystem
- 
+* moving without energy consumption?
+* mouse interaction?
+* attract functionality for player? (left click)
+* repel functionality for player? (right click)
+
+* rename membran to membrane
+* figure out why membrane sometimes have more then two connections
+* add constraint that tries to straighten chains of membranes
+* membrane connections should break when distance is to big
 
 
 
