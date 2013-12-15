@@ -86,7 +86,7 @@ package ld28 {
 				creator.createEnergyProducer();
 			}
 			// spawn membran parts
-			for (i = 0; i < 10; i++) {
+			for (i = 0; i < 100; i++) {
 				creator.createMembranPart();
 			}
 			creator.createPlayer();
