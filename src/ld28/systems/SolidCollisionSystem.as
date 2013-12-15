@@ -24,7 +24,8 @@ package ld28.systems {
 			var node1:SolidCollisionNode;
 			for (node1 = nodes.head; node1; node1 = node1.next) {
 				for each (var entity:Entity in node1.collision.collidingEntities) {
-					var node2:SolidCollisionNode = SolidCollisionNode(family.nodeByEntity(entity));
+					//var node2:SolidCollisionNode = SolidCollisionNode(family.nodeByEntity(entity));
+					var node2:SolidCollisionNode = SolidCollisionNode(family.entities[entity]);
 					if (node2) {
 						handleCollision(node1, node2);
 					}
@@ -46,9 +47,6 @@ package ld28.systems {
 				var moveAppart:Number = radiusSum - diff.length + additionalDistance;
 				node1.position.position = node1.position.position.add(Utils.mult(diffNorm, moveAppart * m2 / massSum));
 				node2.position.position = node2.position.position.subtract(Utils.mult(diffNorm, moveAppart * m1 / massSum));
-				
-				node1.position.changed.dispatch(node1.entity);
-				node2.position.changed.dispatch(node1.entity);
 				
 				diff = node2.position.position.subtract(node1.position.position);
 				diffNorm = diff.clone();

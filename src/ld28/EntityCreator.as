@@ -21,6 +21,7 @@ package ld28 {
 	import ld28.components.Position;
 	import ld28.components.Size;
 	import ld28.components.SolidCollision;
+	import ld28.components.SpatialHashed;
 	import ld28.graphics.CircleView;
 	import ld28.graphics.EnergyProducerView;
 	import ld28.graphics.MoverView;
@@ -55,6 +56,7 @@ package ld28 {
 			
 			var moverView:MoverView = new MoverView(radius);
 			with (entity) {
+				add(new Player());
 				add(new Position(pos.x, pos.y));
 				add(new Size(new Point(radius * 2, radius * 2)));
 				add(new Circle(radius));
@@ -71,7 +73,7 @@ package ld28 {
 				add(new Collision());
 				add(new SolidCollision(0.5));
 				add(new EnergyCollecting());
-				add(new Player());
+				add(new SpatialHashed());
 			}
 			
 			engine.addEntity(entity);
@@ -94,6 +96,7 @@ package ld28 {
 				add(new EnergyStorage(energyAmount, energyAmount));
 				add(new Collision());
 				add(new EnergyParticle());
+				add(new SpatialHashed());
 			}
 			
 			engine.addEntity(entity);
@@ -124,6 +127,7 @@ package ld28 {
 				add(new Mass(radius * radius * Math.PI * density));
 				add(new SolidCollision(0.1));
 				add(new EnergyCollecting());
+				add(new SpatialHashed());
 			}
 			engine.addEntity(entity);
 			return entity;

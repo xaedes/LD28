@@ -32,10 +32,14 @@ package ld28.systems {
 		
 		override public function update(time:Number):void {
 			var energyCollector:EnergyCollectingCollisionNode;
+			var entity:Entity;
 			
 			for (energyCollector = energyCollectors.head; energyCollector; energyCollector = energyCollector.next) {
-				for each (var entity:Entity in energyCollector.collision.collidingEntities) {
-					var energyParticle:EnergyParticleCollisionNode = EnergyParticleCollisionNode(energyParticlesFamily.nodeByEntity(entity));
+				for each (entity in energyCollector.collision.collidingEntities) {
+					//for (var walker:DLLNode = energyCollector.collision.collidingEntities.head; walker; walker = walker.next) {
+					//entity = Entity(walker.val);
+					var energyParticle:EnergyParticleCollisionNode = EnergyParticleCollisionNode(energyParticlesFamily.entities[entity]);
+					//var energyParticle:EnergyParticleCollisionNode = EnergyParticleCollisionNode(energyParticlesFamily.nodeByEntity(entity));
 					if (energyParticle) {
 						if (Point.distance(energyCollector.position.position, energyParticle.position.position) <= (energyParticle.circle.radius + energyCollector.circle.radius)) {
 							creator.destroyEntity(energyParticle.entity);

@@ -13,8 +13,11 @@ package ld28.systems {
 			var hasEnergyStorageView:HasEnergyStorageView = node.hasEnergyStorageView;
 			var energyStorage:EnergyStorage = node.energyStorage;
 			
-			hasEnergyStorageView.energyStorageView.setMax(energyStorage.maxEnergy);
-			hasEnergyStorageView.energyStorageView.setValue(energyStorage.energy);
+			if ((energyStorage.energy != hasEnergyStorageView.energyStorageView.value) || (energyStorage.maxEnergy != hasEnergyStorageView.energyStorageView.max)) {
+				hasEnergyStorageView.energyStorageView.setMax(energyStorage.maxEnergy);
+				hasEnergyStorageView.energyStorageView.setValue(energyStorage.energy);
+				hasEnergyStorageView.energyStorageView.draw();
+			}
 		}
 	}
 }

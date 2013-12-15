@@ -4,6 +4,7 @@ package ld28 {
 	import flash.display.DisplayObjectContainer;
 	import ld28.systems.AudioSystem;
 	import ld28.systems.CollisionSystem;
+	import ld28.systems.CollisionWithSpatialHashingSystem;
 	import ld28.systems.EnergyCollectingCollisionSystem;
 	import ld28.systems.EnergyProducerSystem;
 	import ld28.systems.EnergyStorageEmitterSystem;
@@ -12,6 +13,7 @@ package ld28 {
 	import ld28.systems.MovementSystem;
 	import ld28.systems.RenderSystem;
 	import ld28.systems.SolidCollisionSystem;
+	import ld28.systems.SpatialHashingSystem;
 	
 	/**
 	 * ...
@@ -49,7 +51,10 @@ package ld28 {
 			engine.addSystem(new MovementSystem(config), 0);
 			engine.addSystem(new MotionControlSystem(keyPoll), 0);
 			engine.addSystem(new EnergyStorageViewSystem(), 0);
-			engine.addSystem(new CollisionSystem(), 0);
+			//engine.addSystem(new CollisionSystem(), 0);
+			var spatialHashingSystem:SpatialHashingSystem = new SpatialHashingSystem(config, 10);
+			engine.addSystem(spatialHashingSystem, 0);
+			engine.addSystem(new CollisionWithSpatialHashingSystem(spatialHashingSystem), 0);
 			engine.addSystem(new SolidCollisionSystem(), 0);
 			engine.addSystem(new EnergyCollectingCollisionSystem(creator, config), 0);
 			engine.addSystem(new AudioSystem(), 0);
@@ -64,7 +69,7 @@ package ld28 {
 				creator.createEnergyParticle();
 			}
 			// spawn energy producers
-			for (var j:int = 0; j < 10; j++) {
+			for (var j:int = 0; j < 1000; j++) {
 				creator.createEnergyProducer();
 			}
 			creator.createPlayer();

@@ -14,12 +14,10 @@ package ld28.graphics {
 		
 		public function setMax(max:Number):void {
 			this.max = max;
-			draw();
 		}
 		
 		public function setValue(value:Number):void {
 			this.value = value;
-			draw();
 		}
 		
 		public function draw():void {
