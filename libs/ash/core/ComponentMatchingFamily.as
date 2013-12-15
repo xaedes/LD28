@@ -14,7 +14,7 @@ package ash.core
 	public class ComponentMatchingFamily implements IFamily
 	{
 		private var nodes : NodeList;
-		private var entities : Dictionary;
+		public var entities : Dictionary;
 		private var nodeClass : Class;
 		private var components : Dictionary;
 		private var nodePool : NodePool;
