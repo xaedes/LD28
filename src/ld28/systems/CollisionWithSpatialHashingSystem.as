@@ -5,6 +5,7 @@ package ld28.systems {
 	import ash.core.System;
 	import de.polygonal.ds.DLLNode;
 	import flash.geom.Rectangle;
+	import ld28.components.Radar;
 	import ld28.etc.GridCell;
 	import ld28.nodes.CollisionNode;
 	import ld28.nodes.SpatialHashingNode;
@@ -35,7 +36,8 @@ package ld28.systems {
 			// clear all collisions
 			for (node1 = nodes.head; node1; node1 = node1.next) {
 				//node1.collision.collidingEntities.clear(true); //todo test performance with purge
-				node1.collision.collidingEntities.splice(0, node1.collision.collidingEntities.length);
+				node1.collision.clear();
+					//node1.collision.collidingEntities.splice(0, node1.collision.collidingEntities.length);
 			}
 			
 			var n:int = 0;
@@ -43,7 +45,7 @@ package ld28.systems {
 			var walker1:DLLNode;
 			var walker2:DLLNode;
 			
-			n = 0;
+			//n = 0;
 			// detect collisions
 			for (var x:int = 0; x < map.gridWidth; x++) {
 				for (var y:int = 0; y < map.gridHeight; y++) {
@@ -57,13 +59,21 @@ package ld28.systems {
 							for (walker2 = walker1.next; walker2; walker2 = walker2.next) {
 								//for (node2 = node1.next; node2; node2 = node2.next) {
 								var spatialNode2:SpatialHashingNode = SpatialHashingNode(walker2.val);
+								if (node1.collision.collidingEntities[spatialNode2.entity]) {
+									continue;
+								}
 								node2 = CollisionNode(family.entities[spatialNode2.entity]);
 								if (node2) {
-									n++;
 									var boundingRect2:Rectangle = boundingRect(node1);
 									if (boundingRect1.intersects(boundingRect2)) {
-										node1.collision.collidingEntities.push(node2.entity);
-										node2.collision.collidingEntities.push(node1.entity);
+										//if (node1.entity.has(Radar) || node2.entity.has(Radar)) {
+										//trace("radar collision");
+										//}
+										n++;
+										node1.collision.collidingEntities[node2.entity] = node2.entity;
+										node2.collision.collidingEntities[node1.entity] = node1.entity;
+											//node1.collision.collidingEntities.push(node2.entity);
+											//node2.collision.collidingEntities.push(node1.entity);
 											//node1.collision.collidingEntities.append(node2.entity);
 											//node2.collision.collidingEntities.append(node1.entity);
 									}
@@ -75,7 +85,7 @@ package ld28.systems {
 				}
 			}
 			
-			trace(n);
+			trace("CollisionWithSpatialHashingSystem", n);
 		
 		}
 		

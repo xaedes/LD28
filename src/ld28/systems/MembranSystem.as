@@ -60,7 +60,7 @@ package ld28.systems {
 					}
 				}
 			}
-			trace(n);
+			trace("MembranSystem", n);
 		}
 		
 		override public function removeFromEngine(engine:Engine):void {
