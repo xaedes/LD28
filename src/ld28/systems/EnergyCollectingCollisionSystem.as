@@ -36,10 +36,7 @@ package ld28.systems {
 			
 			for (energyCollector = energyCollectors.head; energyCollector; energyCollector = energyCollector.next) {
 				for each (entity in energyCollector.collision.collidingEntities) {
-					//for (var walker:DLLNode = energyCollector.collision.collidingEntities.head; walker; walker = walker.next) {
-					//entity = Entity(walker.val);
 					var energyParticle:EnergyParticleCollisionNode = EnergyParticleCollisionNode(energyParticlesFamily.entities[entity]);
-					//var energyParticle:EnergyParticleCollisionNode = EnergyParticleCollisionNode(energyParticlesFamily.nodeByEntity(entity));
 					if (energyParticle) {
 						if (Point.distance(energyCollector.position.position, energyParticle.position.position) <= (energyParticle.circle.radius + energyCollector.circle.radius)) {
 							creator.destroyEntity(energyParticle.entity);
