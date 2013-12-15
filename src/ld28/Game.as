@@ -2,6 +2,7 @@ package ld28 {
 	import ash.core.Engine;
 	import ash.tick.FrameTickProvider;
 	import flash.display.DisplayObjectContainer;
+	import ld28.graphics.Redrawable;
 	import ld28.systems.AnchorSystem;
 	import ld28.systems.AudioSystem;
 	import ld28.systems.CollisionSystem;
@@ -11,8 +12,10 @@ package ld28 {
 	import ld28.systems.EnergyStorageEmitterSystem;
 	import ld28.systems.EnergyStorageViewSystem;
 	import ld28.systems.GravitySystem;
+	import ld28.systems.MembranSystem;
 	import ld28.systems.MotionControlSystem;
 	import ld28.systems.MovementSystem;
+	import ld28.systems.RedrawingSystem;
 	import ld28.systems.RenderSystem;
 	import ld28.systems.SolidCollisionSystem;
 	import ld28.systems.SpatialHashingSystem;
@@ -49,8 +52,9 @@ package ld28 {
 			
 			// add systems 
 			// todo: add priorites (CollisionSystem < SolidCollisionSystem, CollisionSystem < EnergyCollectingCollisionSystem)
-			var spatialHashingSystem:SpatialHashingSystem = new SpatialHashingSystem(config, 5);
+			var spatialHashingSystem:SpatialHashingSystem = new SpatialHashingSystem(config, 20);
 			var k:int = 0;
+			engine.addSystem(new RedrawingSystem(), k++);
 			engine.addSystem(new RenderSystem(container), k++);
 			engine.addSystem(new MovementSystem(config), k++);
 			engine.addSystem(new GravitySystem(), k++);
@@ -65,6 +69,7 @@ package ld28 {
 			engine.addSystem(new AnchorSystem(), k++);
 			engine.addSystem(new AudioSystem(), k++);
 			engine.addSystem(new EnergyProducerSystem(), k++);
+			engine.addSystem(new MembranSystem(creator), k++);
 			
 			// create entities
 			creator.createGame();
@@ -79,7 +84,7 @@ package ld28 {
 				creator.createEnergyProducer();
 			}
 			// spawn membran parts
-			for (i = 0; i < 10; i++) {
+			for (i = 0; i < 1; i++) {
 				creator.createMembranPart();
 			}
 			creator.createPlayer();
