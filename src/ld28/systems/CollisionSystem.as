@@ -4,16 +4,18 @@ package ld28.systems {
 	import ash.core.System;
 	import flash.geom.Point;
 	import ld28.Assets;
+	import ld28.components.Audio;
+	import ld28.components.Player;
 	import ld28.EntityCreator;
+	import ld28.nodes.EnergyCollectingCollisionNode;
 	import ld28.nodes.EnergyParticleCollisionNode;
-	import ld28.nodes.MoverCollisionNode;
 	import ld28.nodes.SolidCollisionNode;
 	import ld28.Utils;
 	
 	public class CollisionSystem extends System {
 		private var creator:EntityCreator;
 		private var energyParticles:NodeList;
-		private var movers:NodeList;
+		private var energyCollectors:NodeList;
 		private var solids:NodeList;
 		
 		public function CollisionSystem(creator:EntityCreator) {
@@ -22,21 +24,24 @@ package ld28.systems {
 		
 		override public function addToEngine(engine:Engine):void {
 			energyParticles = engine.getNodeList(EnergyParticleCollisionNode);
-			movers = engine.getNodeList(MoverCollisionNode);
+			energyCollectors = engine.getNodeList(EnergyCollectingCollisionNode);
 			solids = engine.getNodeList(SolidCollisionNode);
 		}
 		
 		override public function update(time:Number):void {
 			var energyParticle:EnergyParticleCollisionNode;
-			var mover:MoverCollisionNode;
+			var energyCollector:EnergyCollectingCollisionNode;
 			
 			for (energyParticle = energyParticles.head; energyParticle; energyParticle = energyParticle.next) {
-				for (mover = movers.head; mover; mover = mover.next) {
-					if (Point.distance(mover.position.position, energyParticle.position.position) <= (energyParticle.collision.radius + mover.collision.radius)) {
+				for (energyCollector = energyCollectors.head; energyCollector; energyCollector = energyCollector.next) {
+					if (Point.distance(energyCollector.position.position, energyParticle.position.position) <= (energyParticle.collision.radius + energyCollector.collision.radius)) {
 						creator.destroyEntity(energyParticle.entity);
 						
-						mover.energyStorage.energy += energyParticle.energyStorage.energy;
-						mover.audio.play(Assets.CollectEnergy);
+						energyCollector.energyStorage.energy += energyParticle.energyStorage.energy;
+						if (energyCollector.entity.has(Player) && energyCollector.entity.has(Audio)) {
+							var audio:Audio = energyCollector.entity.get(Audio);
+							audio.play(Assets.CollectEnergy);
+						}
 						
 						break;
 					}
@@ -90,7 +95,8 @@ package ld28.systems {
 		
 		override public function removeFromEngine(engine:Engine):void {
 			energyParticles = null;
-			movers = null;
+			energyCollectors = null;
+			solids = null;
 		
 		}
 	}
