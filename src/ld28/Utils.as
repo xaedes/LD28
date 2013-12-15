@@ -40,6 +40,17 @@ package ld28 {
 			a.x -= b.x;
 			a.y -= b.y;
 		}
+		
+		static public function pointSet(a:Point, b:Point):void {
+			a.x = b.x;
+			a.y = b.y;
+		}
+		
+		static public function partitionVector(vec:Point, axisNormalised:Point, axisPart:Point, rest:Point):void {
+			pointSet(axisPart, mult(axisNormalised, dot(vec, axisNormalised)));
+			pointSet(rest, vec.subtract(axisPart));
+		}
+	
 	}
 
 }
