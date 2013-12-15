@@ -55,6 +55,9 @@ package ld28.systems {
 								node2.membran.connections.push(connection);
 								node1.membran.connected[node2.entity] = connection;
 								node2.membran.connected[node1.entity] = connection;
+								if (node1.membran.connections.length >= 2) {
+									break;
+								}
 							}
 						}
 					}
