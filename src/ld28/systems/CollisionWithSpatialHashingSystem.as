@@ -85,7 +85,7 @@ package ld28.systems {
 				}
 			}
 			
-			trace(n);
+			trace("CollisionWithSpatialHashingSystem", n);
 		
 		}
 		
