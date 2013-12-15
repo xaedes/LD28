@@ -24,8 +24,10 @@ So you have to collect and/or produce more energy.
 * AudaCity
 
 ### Todo
-* add Collision between Mover and EnergyProducer that pushes both of them away
-* add vector field to simulate flow  
+* add EnergyCollector component and try to add it to EnergyProducers
+* add MmembranPart entities that connect to each other at their two ends
+
+* add randomly distorted vector field that has influence on moving things to simulate a dynamic primeval soup
 
 ### Current Live Version can be viewed here:
 
