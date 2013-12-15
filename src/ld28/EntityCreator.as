@@ -8,6 +8,7 @@ package ld28 {
 	import ld28.components.Circle;
 	import ld28.components.Collision;
 	import ld28.components.Display;
+	import ld28.components.DistanceConstraint;
 	import ld28.components.EnergyCollecting;
 	import ld28.components.EnergyParticle;
 	import ld28.components.EnergyProducer;
@@ -202,11 +203,14 @@ package ld28 {
 			var pos1:Position = Position(entity1.get(Position));
 			var pos2:Position = Position(entity2.get(Position));
 			
+			var distance:Number = 10;
+			
 			var view:LineView = new LineView(pos1.position, pos2.position);
 			with (entity) {
 				add(new Position(0, 0));
 				add(new Redrawing(view));
 				add(new Display(view));
+				add(new DistanceConstraint(entity1, entity2, distance));
 			}
 			
 			engine.addEntity(entity);

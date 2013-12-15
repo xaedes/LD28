@@ -7,6 +7,7 @@ package ld28 {
 	import ld28.systems.AudioSystem;
 	import ld28.systems.CollisionSystem;
 	import ld28.systems.CollisionWithSpatialHashingSystem;
+	import ld28.systems.DistanceConstraintSystem;
 	import ld28.systems.EnergyCollectingCollisionSystem;
 	import ld28.systems.EnergyProducerSystem;
 	import ld28.systems.EnergyStorageEmitterSystem;
@@ -70,6 +71,7 @@ package ld28 {
 			engine.addSystem(new AudioSystem(), k++);
 			engine.addSystem(new EnergyProducerSystem(), k++);
 			engine.addSystem(new MembranSystem(creator), k++);
+			engine.addSystem(new DistanceConstraintSystem(), k++);
 			
 			// create entities
 			creator.createGame();
