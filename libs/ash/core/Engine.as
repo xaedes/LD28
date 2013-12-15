@@ -151,6 +151,23 @@ package ash.core
 		}
 		
 		/**
+		 * Gets the family for the requested type of node.
+		 * 
+		 * @param	nodeClass The type of node for that the family is requested.
+		 * @return 
+		 */
+		public function getFamily(nodeClass : Class):IFamily 
+		{
+			if( families[nodeClass] )
+			{
+				return IFamily( families[nodeClass] );
+			}
+			var family : IFamily = new familyClass( nodeClass, this );
+			families[nodeClass] = family;
+			return family;
+		}
+		
+		/**
 		 * Get a collection of nodes from the engine, based on the type of the node required.
 		 * 
 		 * <p>The engine will create the appropriate NodeList if it doesn't already exist and 

@@ -58,6 +58,19 @@ package ash.core
 			}
 		}
 		
+		public function containsEntity( entity : Entity ): Boolean
+		{
+			return Boolean(entities[entity]);
+		}
+		public function nodeByEntity( entity : Entity ): Node
+		{
+			if (entities[entity])
+			{
+				return entities[entity];
+			} 
+			return null;
+		}
+		
 		/**
 		 * The nodelist managed by this family. This is a reference that remains valid always
 		 * since it is retained and reused by Systems that use the list. i.e. we never recreate the list,
