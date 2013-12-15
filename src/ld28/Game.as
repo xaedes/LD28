@@ -9,6 +9,7 @@ package ld28 {
 	import ld28.systems.EnergyProducerSystem;
 	import ld28.systems.EnergyStorageEmitterSystem;
 	import ld28.systems.EnergyStorageViewSystem;
+	import ld28.systems.GravitySystem;
 	import ld28.systems.MotionControlSystem;
 	import ld28.systems.MovementSystem;
 	import ld28.systems.RenderSystem;
@@ -52,7 +53,7 @@ package ld28 {
 			engine.addSystem(new MotionControlSystem(keyPoll), 0);
 			engine.addSystem(new EnergyStorageViewSystem(), 0);
 			//engine.addSystem(new CollisionSystem(), 0);
-			var spatialHashingSystem:SpatialHashingSystem = new SpatialHashingSystem(config, 10);
+			var spatialHashingSystem:SpatialHashingSystem = new SpatialHashingSystem(config, 5);
 			engine.addSystem(spatialHashingSystem, 0);
 			engine.addSystem(new CollisionWithSpatialHashingSystem(spatialHashingSystem), 0);
 			engine.addSystem(new SolidCollisionSystem(), 0);
@@ -60,6 +61,7 @@ package ld28 {
 			engine.addSystem(new AudioSystem(), 0);
 			engine.addSystem(new EnergyProducerSystem(), 0);
 			engine.addSystem(new EnergyStorageEmitterSystem(creator), 0);
+			engine.addSystem(new GravitySystem(config), 0);
 			
 			// create entities
 			creator.createGame();
@@ -69,7 +71,7 @@ package ld28 {
 				creator.createEnergyParticle();
 			}
 			// spawn energy producers
-			for (var j:int = 0; j < 1000; j++) {
+			for (var j:int = 0; j < 50; j++) {
 				creator.createEnergyProducer();
 			}
 			creator.createPlayer();

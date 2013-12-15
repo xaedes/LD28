@@ -12,6 +12,7 @@ package ld28 {
 	import ld28.components.EnergyProducer;
 	import ld28.components.EnergyStorage;
 	import ld28.components.EnergyStorageEmitter;
+	import ld28.components.Gravity;
 	import ld28.components.HasEnergyStorageView;
 	import ld28.components.Mass;
 	import ld28.components.Motion;
@@ -49,7 +50,7 @@ package ld28 {
 		public function createPlayer():Entity {
 			var entity:Entity = new Entity();
 			
-			var radius:Number = 10;
+			var radius:Number = 20;
 			var density:Number = 1;
 			
 			var pos:Point = new Point(config.width / 2, config.height / 2);
@@ -68,7 +69,7 @@ package ld28 {
 				add(new HasEnergyStorageView(moverView.energyStorageView));
 				add(new MotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
 				add(new Audio());
-				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 0, 1, 1));
+				//add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 0, 1, 1));
 				add(new Mass(radius * radius * Math.PI * density));
 				add(new Collision());
 				add(new SolidCollision(0.5));
@@ -106,7 +107,7 @@ package ld28 {
 		public function createEnergyProducer():Entity {
 			var entity:Entity = new Entity();
 			
-			var radius:Number = 5;
+			var radius:Number = 10;
 			var density:Number = 1;
 			var _maxEnergy:Number = Utils.randomRange(5, 15);
 			var pos:Point = new Point(Utils.randomRange(0, config.width), Utils.randomRange(0, config.height));
@@ -125,9 +126,10 @@ package ld28 {
 				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 1, 5, 5));
 				add(new HasEnergyStorageView(energyProducerView.energyStorageView));
 				add(new Mass(radius * radius * Math.PI * density));
-				add(new SolidCollision(0.1));
+				add(new SolidCollision(0.91));
 				add(new EnergyCollecting());
 				add(new SpatialHashed());
+				add(new Gravity());
 			}
 			engine.addEntity(entity);
 			return entity;
