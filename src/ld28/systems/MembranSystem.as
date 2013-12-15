@@ -33,12 +33,12 @@ package ld28.systems {
 		
 		override public function update(time:Number):void {
 			var node1:MembranNode;
-			var n:int = 0;
+			//var n:int = 0;
 			for (node1 = nodes.head; node1; node1 = node1.next) {
 				if (node1.membran.connections.length < 2) {
 					var radarCollisions:Collision = node1.radar.entity.get(Collision);
 					for each (var entity:Entity in radarCollisions.collidingEntities) {
-						n++;
+						//n++;
 						if (entity == node1.entity) {
 							continue;
 						}
@@ -60,7 +60,7 @@ package ld28.systems {
 					}
 				}
 			}
-			trace("MembranSystem", n);
+			//trace("MembranSystem", n);
 		}
 		
 		override public function removeFromEngine(engine:Engine):void {

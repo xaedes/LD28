@@ -40,12 +40,11 @@ package ld28.systems {
 					//node1.collision.collidingEntities.splice(0, node1.collision.collidingEntities.length);
 			}
 			
-			var n:int = 0;
+			//var n:int = 0;
 			
 			var walker1:DLLNode;
 			var walker2:DLLNode;
 			
-			//n = 0;
 			// detect collisions
 			for (var x:int = 0; x < map.gridWidth; x++) {
 				for (var y:int = 0; y < map.gridHeight; y++) {
@@ -69,7 +68,7 @@ package ld28.systems {
 										//if (node1.entity.has(Radar) || node2.entity.has(Radar)) {
 										//trace("radar collision");
 										//}
-										n++;
+										//n++;
 										node1.collision.collidingEntities[node2.entity] = node2.entity;
 										node2.collision.collidingEntities[node1.entity] = node1.entity;
 											//node1.collision.collidingEntities.push(node2.entity);
@@ -84,8 +83,8 @@ package ld28.systems {
 					}
 				}
 			}
-			
-			trace("CollisionWithSpatialHashingSystem", n);
+		
+			//trace("CollisionWithSpatialHashingSystem", n);
 		
 		}
 		
