@@ -2,6 +2,7 @@ package ld28 {
 	import ash.core.Engine;
 	import ash.core.Entity;
 	import flash.geom.Point;
+	import flash.net.LocalConnection;
 	import flash.ui.Keyboard;
 	import ld28.components.Anchor;
 	import ld28.components.Audio;
@@ -107,7 +108,7 @@ package ld28 {
 				add(new EnergyParticle());
 				add(new SpatialHashed());
 				add(new Mass(radius * radius * Math.PI * density));
-					//add(new SolidCollision(0.6));
+				add(new SolidCollision(0.6));
 					//add(new Gravity(new Point(config.width / 2, 3 * config.height / 4), 5));
 			}
 			
@@ -205,12 +206,12 @@ package ld28 {
 			
 			var distance:Number = 10;
 			
-			var view:LineView = new LineView(pos1.position, pos2.position);
+			var view:LineView = new LineView(pos1.position, pos2.position, 0.5 * 2 * 0.6 * 10, 0x35AAFF);
 			with (entity) {
 				add(new Position(0, 0));
 				add(new Redrawing(view));
 				add(new Display(view));
-				add(new DistanceConstraint(entity1, entity2, distance, 1, 0.05));
+				add(new DistanceConstraint(entity1, entity2, distance, 1, 0.15));
 			}
 			
 			engine.addEntity(entity);
