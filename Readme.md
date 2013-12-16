@@ -21,6 +21,13 @@ Controls: WASD
 
 Link to Ludum Dare entry: http://www.ludumdare.com/compo/ludum-dare-28/?action=preview&uid=31351
 
+
+### Live Version can be viewed here:
+
+http://xaedes.de/dev/ld28/
+	
+Controls: WASD
+
 ### Stack
 
 * FlashDevelop
@@ -30,13 +37,6 @@ Link to Ludum Dare entry: http://www.ludumdare.com/compo/ludum-dare-28/?action=p
 * SmartGit
 * bfxr (http://www.bfxr.net/)
 * AudaCity
-
-### Live Version can be viewed here:
-
-http://xaedes.de/dev/ld28/
-	
-Controls: WASD
-
 
 
 ### Todo
