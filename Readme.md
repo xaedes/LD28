@@ -26,15 +26,13 @@ So you have to collect and/or produce more energy.
 
 ### Todo
 * moving without energy consumption?
-* mouse interaction?
+* mouse interaction? is implemented, but didnt feel right - maybe I can improve that
 * attract functionality for player? (left click)
 * repel functionality for player? (right click)
 
 * rename membran to membrane
-* figure out why membrane sometimes have more then two connections
-* add constraint that tries to straighten chains of membranes
 * membrane connections should break when distance is to big
-
+* sometimes the mover is like glued to membrane parts, figure out why
 
 
 * add MembranPart entities that connect to each other at their two ends
