@@ -1,5 +1,4 @@
 
-
 My Entry for Ludum Dare 28 - Theme "You only get one" 
 -------------------------
 
@@ -27,6 +26,12 @@ Link to Ludum Dare entry: http://www.ludumdare.com/compo/ludum-dare-28/?action=p
 http://xaedes.de/dev/ld28/
 	
 Controls: WASD
+
+### Further Development
+
+As the game is submitted to Ludum Dare I wont push further development into this repo but rather to
+
+https://github.com/xaedes/One-Cell
 
 ### Stack
 
