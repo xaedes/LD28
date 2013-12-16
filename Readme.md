@@ -39,7 +39,7 @@ So you have to collect and/or produce more energy.
 
 * add randomly distorted vector field that has influence on moving things to simulate a dynamic primeval soup
 
-### Current Live Version can be viewed here:
+### Live Version can be viewed here:
 
 http://xaedes.de/dev/ld28/
 	
