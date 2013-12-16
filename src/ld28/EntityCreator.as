@@ -60,7 +60,7 @@ package ld28 {
 			var entity:Entity = new Entity();
 			
 			var radius:Number = 20;
-			var density:Number = 10;
+			var density:Number = 100;
 			
 			var pos:Point = new Point(config.width / 2, config.height / 2);
 			
@@ -71,19 +71,19 @@ package ld28 {
 				add(new Size(new Point(radius * 2, radius * 2)));
 				add(new Circle(radius));
 				add(new Display(moverView));
-				//add(new Mover(0.001));
-				add(new Mover(0.0));
+				add(new Mover(0.001));
+				//add(new Mover(0.0));
 				add(new Motion(0, 0, 0.95));
 				add(new EnergyStorage(10, 5));
 				add(new HasEnergyStorageView(moverView.energyStorageView));
 				add(new KeyboardMotionControls(Keyboard.A, Keyboard.D, Keyboard.W, Keyboard.S, 1000));
-				add(new MouseMotionControls(100));
+				//add(new MouseMotionControls(100));
 				
 				add(new Audio());
 				//add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 0, 1, 1));
 				add(new Mass(radius * radius * Math.PI * density));
 				add(new Collision());
-				add(new SolidCollision(0.5));
+				add(new SolidCollision(0.9));
 				add(new EnergyCollecting());
 				add(new SpatialHashed());
 			}
@@ -136,7 +136,7 @@ package ld28 {
 				add(new Motion(Utils.randomRange(-50, 50), Utils.randomRange(-50, 50), 0.995));
 				add(new EnergyStorage(_maxEnergy, Utils.randomRange(0, _maxEnergy)));
 				add(new Collision());
-				add(new EnergyProducer(0.1, 0.01));
+				add(new EnergyProducer(0.1, 0.03));
 				//add(new EnergyProducer(0.1, 0.1));
 				add(new EnergyStorageEmitter(0.1, radius + 3, 1, 10, 1, 5, 5));
 				add(new HasEnergyStorageView(energyProducerView.energyStorageView));
@@ -197,7 +197,7 @@ package ld28 {
 			return entity;
 		}
 		
-		public function createConnection(entity1:Entity, entity2:Entity):Entity {
+		public function createConnection(entity1:Entity, entity2:Entity, distance:Number = 10):Entity {
 			if (!(entity1.has(Position) && entity2.has(Position))) {
 				return null;
 			}
@@ -206,8 +206,6 @@ package ld28 {
 			
 			var pos1:Position = Position(entity1.get(Position));
 			var pos2:Position = Position(entity2.get(Position));
-			
-			var distance:Number = 9;
 			
 			var view:LineView = new LineView(pos1.position, pos2.position, 0.5 * 2 * 0.6 * 10, 0x35AAFF);
 			with (entity) {
