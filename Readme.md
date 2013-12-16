@@ -19,6 +19,8 @@ Much fun!
 
 Controls: WASD
 
+Link to Ludum Dare entry: http://www.ludumdare.com/compo/ludum-dare-28/?action=preview&uid=31351
+
 ### Stack
 
 * FlashDevelop
@@ -28,6 +30,14 @@ Controls: WASD
 * SmartGit
 * bfxr (http://www.bfxr.net/)
 * AudaCity
+
+### Live Version can be viewed here:
+
+http://xaedes.de/dev/ld28/
+	
+Controls: WASD
+
+
 
 ### Todo
 * moving without energy consumption?
@@ -39,13 +49,4 @@ Controls: WASD
 * membrane connections should break when distance is to big
 * sometimes the mover is like glued to membrane parts, figure out why
 
-
-* add MembranPart entities that connect to each other at their two ends
-
 * add randomly distorted vector field that has influence on moving things to simulate a dynamic primeval soup
-
-### Live Version can be viewed here:
-
-http://xaedes.de/dev/ld28/
-	
-Controls: WASD
