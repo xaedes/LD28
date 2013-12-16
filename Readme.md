@@ -15,6 +15,10 @@ Among them are useful things like chloroplasts, cell membrane parts and energy.
 
 But be careful; moving consumes energy. If your internal energy is depleted you won't be able to move anymore. So you have to collect more energy. 
 
+Much fun!
+
+Controls: WASD
+
 ### Stack
 
 * FlashDevelop
