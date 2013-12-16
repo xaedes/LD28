@@ -5,14 +5,15 @@ My Entry for Ludum Dare 28 - Theme "You only get one"
 
 ### Game Idea
 
-It is a Osmos/Spore/CellCraft/Flow combination.
-You will only get one (biological) cell.
-But you can improve your cell!
-Collect useful things like chloroplasts, cell membran parts, energy storages and more useful things.
-At first you are only a little core that has a little energy storage and can be moved. But be careful 
-moving consumes energy. If your internal energy is depleted you won't be able to move anymore.
-So you have to collect and/or produce more energy.
+A sandbox physics game inspired by Osmos/Spore/CellCraft/Flow.
 
+You will only get one (biological) cell. Further more it is completely disassembled. Gosh, who did that??
+
+Only your very core is still intact and controllable. Move around and try to build your cell from the parts that are left. 
+
+Among them are useful things like chloroplasts, cell membrane parts and energy. 
+
+But be careful; moving consumes energy. If your internal energy is depleted you won't be able to move anymore. So you have to collect more energy. 
 
 ### Stack
 
